@@ -117,22 +117,7 @@ class DSFNetModel(BaseModel):
 
         return self.loss_all, metrics, metrics1, metrics2, self.loss_Traj, self.loss_Building, self.loss_src_Traj
 
-    def testtest(self):
-        BaseModel.test(self)
-        metrics = self.metrics(self.pred_traj, self.label)
-        metrics2 = self.metrics2(self.src_pred_traj, self.label)
-
-        self.loss_Traj = self.criterion(self.label, self.pred_traj)
-        self.loss_src_Traj = self.criterion(self.label, self.src_pred_traj)
-        self.loss_all = (self.loss_Traj + self.loss_src_Traj)
-
-        self.pred_traj, self.pred_building, self.src_pred_traj = self.netDSFNet(self.img, self.src)
-        self.pred_traj_img = DSFNetModel.pred2im(self.pred_traj)
-        self.pred_building_img = DSFNetModel.pred2im(self.pred_building)
-        self.pred_src_traj_img = DSFNetModel.pred2im(self.src_pred_traj)
-
-        return self.loss_all, metrics, metrics2, self.src_pred_traj
-
+    
     @staticmethod
     def pred2im(image_tensor):
         image_numpy = image_tensor[0].cpu().float().detach().numpy()  # convert it into a numpy array
