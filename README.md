@@ -4,6 +4,3 @@
 
 ### Stage 2: Adaptive Map Completion
 
-The implementation of Adaptive Map Completion is in
-
-`DelvMapConnector.adaptive_fuse` (in `adaptive_map_completion/adaptive_map_completion.py`)
